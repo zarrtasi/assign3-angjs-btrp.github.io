@@ -53,18 +53,21 @@
         <h6 class="text-white text-center">&deg;C to &deg;F or &deg;F to &deg;C</h6>
       </div>
 
-      <div class="text-white align-div-ng" style='' ng-app="assign3" ng-controller="mCtrl" ng-init="myCol='lightgreen'">
+      <div class="text-white align-div-ng" style=''>
           <h5 class="text-left">Enter the temperature:</h5>
-          <input style="background-color:{{myCol}}; text-align:center; color:darkslategrey; padding: 5px 10px; border-radius:50px; border-color:lightgreen; outline:none;" type="text" ng-model="temp"/>
-          <button ng-click="reset()" class="btn btn-light btn-sm" style="border-radius:50px; border-color:white; outline:none; color:darkcyan;" type="button">RESET</button>
-          <br><br>
+	  <form name="assignForm" ng-app="assign3" ng-controller="mCtrl" ng-init="myCol='lightgreen'">
+		  <input name="tempCFt" style="background-color:{{myCol}}; text-align:center; color:darkslategrey; padding: 5px 10px; border-radius:50px; border-color:lightgreen; outline:none;" type="text" ng-model="temp"/>
+		  <span ng-show="assignForm.temCFt.$error.required" class="text-warning">You left field empty!</span>
+		  <button ng-click="reset()" class="btn btn-light btn-sm" style="border-radius:50px; border-color:white; outline:none; color:darkcyan;" type="button">RESET</button>
+		  <br><br>
 
-          <h5 class="text-left" style='color:honeydew'>Click the Conversion Mode:</h5>
-          <!-- C to F -->
-          <button ng-model="temp" ng-click="tempCF = (temp * (9 / 5) + 32)" class="btn btn-light btn-sm" style="border-radius:50px; border-color:white; outline:none; color:darkcyan;" type="button">&deg;C to &deg;F</button>
+		  <h5 class="text-left" style='color:honeydew'>Click the Conversion Mode:</h5>
+		  <!-- C to F -->
+		  <button ng-model="temp" ng-click="tempCF = (temp * (9 / 5) + 32)" class="btn btn-light btn-sm" style="border-radius:50px; border-color:white; outline:none; color:darkcyan;" type="button">&deg;C to &deg;F</button>
 
-          <!-- F to C -->
-          <button ng-model="temp" ng-click="tempCF = ((temp - 32) * (5/9))" class="btn btn-light btn-sm" style="border-radius:50px; outline:none; color:darkcyan;" type="button">&deg;F to &deg;C</button>
+		  <!-- F to C -->
+		  <button ng-model="temp" ng-click="tempCF = ((temp - 32) * (5/9))" class="btn btn-light btn-sm" style="border-radius:50px; outline:none; color:darkcyan;" type="button">&deg;F to &deg;C</button>
+	   </form>
           <br><br>
           <h3 class="text-center text-light">You entered: <label ng-bind="temp"></label> -> {{ tempCF}}</h3>
           <br><br>
