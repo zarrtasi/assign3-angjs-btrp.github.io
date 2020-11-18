@@ -66,7 +66,8 @@
           <!-- F to C -->
           <button ng-model="temp" ng-click="tempCF = ((temp - 32) * (5/9))" class="btn btn-light btn-sm" style="border-radius:50px; outline:none; color:darkcyan;" type="button">&deg;F to &deg;C</button>
           <br><br>
-          <h3 class="text-center text-light">You entered: <label ng-bind="temp"></label> -> After conversion: {{tempCF}}</h3>
+          <h3 class="text-center text-light">You entered: <label ng-bind="temp"></label> <br>
+		  After conversion: <span>{{tempCF | number:2}}</span> {{tempCF}}</h3>
           <br><br>
           
          
